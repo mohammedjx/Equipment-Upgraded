@@ -16,9 +16,7 @@ export default function LoginClient() {
         className="w-full max-w-sm rounded-2xl border p-6 space-y-4 bg-white"
       >
         <h1 className="text-xl font-semibold">Admin Login</h1>
-
         <input type="hidden" name="next" value={nextUrl} />
-
         <div className="space-y-2">
           <label htmlFor="password" className="block text-sm font-medium">
             Password
@@ -33,7 +31,6 @@ export default function LoginClient() {
             required
           />
         </div>
-
         <button
           type="submit"
           className="w-full rounded-lg bg-black text-white py-2"
