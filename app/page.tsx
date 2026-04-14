@@ -1,5 +1,16 @@
 "use client";
 
+import { Suspense } from "react";
+import LoginClient from "./LoginClient";
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading...</div>}>
+      <LoginClient />
+    </Suspense>
+  );
+}
+
 import { ChangeEvent, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { formatDateTime } from "@/lib/utils";
