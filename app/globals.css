@@ -1,0 +1,242 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea {
+  font: inherit;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.header {
+  margin-bottom: 24px;
+}
+.header h1 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+}
+.header p {
+  margin: 0;
+  color: #cbd5e1;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.card h2, .card h3 {
+  margin-top: 0;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.field input, .field textarea, .field select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #475569;
+  background: #020617;
+  color: #e2e8f0;
+}
+.field textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.button {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+}
+.button.secondary {
+  background: #334155;
+}
+.button.danger {
+  background: #dc2626;
+}
+.button.success {
+  background: #16a34a;
+}
+.muted {
+  color: #94a3b8;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #1e293b;
+  border: 1px solid #475569;
+  font-size: 12px;
+}
+.profile {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.profile img, .profile .placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  object-fit: cover;
+  background: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  border: 1px solid #334155;
+}
+.tableWrap {
+  overflow: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #334155;
+  vertical-align: top;
+}
+.status {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #1e293b;
+}
+.small { font-size: 0.9rem; }
+.sectionTitle { margin: 0 0 12px 0; }
+.scannerBox {
+  border: 1px dashed #475569;
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 700px) {
+  .profile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  color: #93c5fd;
+  margin-bottom: 8px;
+}
+.authWrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.authCard {
+  width: min(460px, 100%);
+  background: #111827;
+  border: 1px solid #334155;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+.adminPage {
+  padding-bottom: 56px;
+}
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.statCard {
+  background: linear-gradient(180deg, rgba(37,99,235,.25), rgba(15,23,42,.9));
+  border: 1px solid #334155;
+  border-radius: 18px;
+  padding: 18px;
+}
+.statCard span {
+  display: block;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+.statCard strong {
+  font-size: 2rem;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.listCard {
+  background: #0b1220;
+  border: 1px solid #243041;
+  border-radius: 16px;
+  padding: 14px;
+}
+.listCardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #1d4ed8;
+  color: white;
+  font-size: 12px;
+}
+.chip.ghost {
+  background: #1f2937;
+  color: #cbd5e1;
+}
+.auditCard {
+  margin-top: 20px;
+}
+@media (max-width: 700px) {
+  .headerRow, .listCardTop {
+    flex-direction: column;
+  }
+}

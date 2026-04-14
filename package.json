@@ -1,0 +1,32 @@
+{
+  "name": "officer-equipment-checkout",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "@yudiel/react-qr-scanner": "^2.3.1",
+    "next": "15.5.9",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "prisma": "^6.6.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

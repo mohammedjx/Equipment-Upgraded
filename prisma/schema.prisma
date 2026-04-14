@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EquipmentEventType {
+  CHECK_OUT
+  CHECK_IN
+}
+
+model Officer {
+  id        String   @id @default(cuid())
+  badgeId   String   @unique
+  nuid      String   @unique
+  fullName  String
+  photoData String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  shifts Shift[]
+
+  @@index([fullName])
+}
+
+model Equipment {
+  id          String   @id @default(cuid())
+  qrCode      String   @unique
+  label       String
+  category    String?
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  events EquipmentEvent[]
+
+  @@index([label])
+  @@index([category])
+}
+
+model Shift {
+  id             String   @id @default(cuid())
+  shiftId        String   @unique
+  officerId      String
+  startedAt      DateTime
+  endedAt        DateTime?
+  noEquipment    Boolean  @default(false)
+  notes          String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  officer        Officer          @relation(fields: [officerId], references: [id], onDelete: Cascade)
+  equipmentEvents EquipmentEvent[]
+
+  @@index([officerId, startedAt])
+  @@index([startedAt])
+  @@index([endedAt])
+}
+
+model EquipmentEvent {
+  id          String             @id @default(cuid())
+  shiftIdRef  String
+  equipmentId String
+  type        EquipmentEventType
+  eventAt     DateTime           @default(now())
+  createdAt   DateTime           @default(now())
+
+  shift       Shift              @relation(fields: [shiftIdRef], references: [id], onDelete: Cascade)
+  equipment   Equipment          @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+
+  @@index([shiftIdRef, eventAt])
+  @@index([equipmentId, eventAt])
+}
